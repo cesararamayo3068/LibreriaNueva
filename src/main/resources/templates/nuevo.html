@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>[[${libro.id ne null ? 'Editar Libro' : 'Registro de Libro'}]]</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+	<div class="row justify-content-center mt-3">
+		<div class="col-md-6 col-lg-4">
+			<h3 class="text-center">[[${libro.id ne null ? 'Editar Libro' : 'Registro de Libro'}]]</h3>
+			<br>
+			<form action="" method="post" th:object="${libro}">
+				<div class="mb-3">
+					<label for="nombre">Titulo : </label> <input id="titulo"
+						type="text" placeholder="Ingrese Titulo " th:field="*{titulo}" class="form-control" th:errorClass="is-invalid">
+
+					<div th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" class="invalid-feedback"></div>
+				</div>
+				<div class="mb-3">
+					<label for="autor">Autor : </label> <input id="autor"
+						type="text" placeholder="Ingrese el Autor " th:field="*{autor}" class="form-control" th:errorClass="is-invalid">
+
+					<div th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}" class="invalid-feedback"></div>
+				</div>
+				<div class="mb-3">
+					<label for="email">Precio : </label> <input id="precio" type="text"
+						placeholder="Ingrese Precio" th:field="*{precio}" class="form-control" th:errorClass="is-invalid">
+
+					<div th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}" class="invalid-feedback"></div>
+				</div>
+				<div class="mb-3">
+					<label for="fechaLanzamiento">Fecha de Lanzamiento : </label> <input
+						id="fechaLanzamiento" type="date" th:field="*{fechaLanzamiento}" class="form-control" th:errorClass="is-invalid">
+
+					<div th:if="${#fields.hasErrors('fechaLanzamiento')}" th:errors="*{fechaLanzamiento}" class="invalid-feedback"></div>
+				</div>
+
+				<div class="text-end">
+				    <button class="btn btn-success"><i class="fas fa-save"></i>&nbsp;Guardar</button>
+				    <a href="/" class="btn btn-light ms-2"><i class="fas fa-backward"></i>&nbsp;Cancelar </a>
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+		crossorigin="anonymous"></script>
+</body>
+</html>
