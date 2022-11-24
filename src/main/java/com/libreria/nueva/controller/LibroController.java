@@ -43,7 +43,7 @@ public class LibroController {
 		}
 		
 		libroRepository.save(libro);
-		redirect.addFlashAttribute("msgExito", "El libro se almaceno exitosamente!!");
+		redirect.addFlashAttribute("msgExito", "El libro "+ libro.getTitulo() + " se almaceno exitosamente!!");
 		return "redirect:/";
 	}
     
@@ -70,7 +70,7 @@ public class LibroController {
 		libroDB.setPrecio(libro.getPrecio());
 		libroDB.setFechaLanzamiento(libro.getFechaLanzamiento());
 		libroRepository.save(libroDB);
-		redirect.addFlashAttribute("msgExito", "El libro se modifico exitosamente!!");
+		redirect.addFlashAttribute("msgExito", "El libro " + libroDB.getTitulo() + " se modifico exitosamente!!");
 		return "redirect:/";
 	}
 	
@@ -78,7 +78,7 @@ public class LibroController {
 	public String EliminarLibro(@PathVariable Long id, RedirectAttributes redirect) {
 		Libro libro = libroRepository.findById(id).get();
 		libroRepository.delete(libro);
-		redirect.addFlashAttribute("msgExito", "El libro se elimino exitosamente!!");
+		redirect.addFlashAttribute("msgExito", "El libro " + libro.getTitulo() + " se elimino exitosamente!!");
 		return "redirect:/";
 
 	}
