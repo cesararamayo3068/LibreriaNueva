@@ -17,6 +17,7 @@ import com.libreria.nueva.repository.LibroRepository;
 
 @Controller
 public class LibroController {
+	
 	@Autowired
 	private LibroRepository libroRepository;
 
